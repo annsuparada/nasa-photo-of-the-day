@@ -12,11 +12,11 @@ export default function NasaGrid({ limit }){
     const [title, setTitle] = useState('')
     const [explanation, setExplanation] = useState('')
     const apiKey = '8dzkNbe9C5YIr88ffb5sGaffbNx5bRZCBOcNdYYZ'
-    const [date, setDate] = useState('2019-07-15')
+    const [date, setDate] = useState('')
 
     useEffect(() => {
         axios
-            .get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=2019-07-15`)
+            .get(`https://api.nasa.gov/planetary/apod?api_key=${apiKey}&date=${date}`)
             .then(response => {
                 const nasaInfo = response
                 setMediaType(response.data.media_type)
@@ -27,13 +27,13 @@ export default function NasaGrid({ limit }){
                 console.log('setExplanation',setExplanation)
             })
             
-    }, [mediaUrl])
+    }, [mediaUrl, date])
 
     return (
         <div>
-            
-            <Media mediaUrl={mediaUrl} mediaType={mediaType} />
+            <Date date={date} setDate={setDate} />
             <Title title={title}/>
+            <Media mediaUrl={mediaUrl} mediaType={mediaType} />
             <Explanation explanation={explanation} />
         </div>
     )
