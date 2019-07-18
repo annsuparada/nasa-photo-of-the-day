@@ -1,10 +1,15 @@
 import React from "react"
-import "./style.scss"
+import { Message } from 'semantic-ui-react'
 
 
 export default function Explanation(props){
     const {explanation} = props
     return (
-        <p className="p">{explanation}</p>
+        <div>
+        <Message color='blue'>{explanation}</Message>
+        </div>
     )
 }
+
+ 
+

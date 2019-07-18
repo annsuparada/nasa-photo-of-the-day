@@ -4,6 +4,9 @@ import Media from "./Media"
 import Title from "./Title"
 import Explanation from "./Explanation"
 import Date from "./Date"
+import { Card } from 'semantic-ui-react'
+import "./style.scss"
+
 
 export default function NasaGrid({ limit }){
     const [nasa, setNasa] = useState([])
@@ -32,9 +35,12 @@ export default function NasaGrid({ limit }){
     return (
         <div>
             <Date date={date} setDate={setDate} />
-            <Title title={title}/>
-            <Media mediaUrl={mediaUrl} mediaType={mediaType} />
-            <Explanation explanation={explanation} />
+            <Card className='card'>
+                <Title title={title}/>
+                <Media mediaUrl={mediaUrl} mediaType={mediaType} />
+                <Explanation explanation={explanation} />
+            </Card>
         </div>
+        
     )
 }
