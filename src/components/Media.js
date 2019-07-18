@@ -1,5 +1,6 @@
 import React from "react"
-import { Divider, Image } from 'semantic-ui-react'
+import { Image } from 'semantic-ui-react'
+import "./style.scss"
 
 export default function Media(props){
     const {mediaUrl, mediaType} = props
